@@ -3,7 +3,7 @@ title: "Life Expectancy for Political Candidates"
 Author : Sharjeel
 format: html
 execute: 
-  echo: false
+   echo: false
 ---
 
 ```{r}
@@ -12,6 +12,7 @@ library(tidyverse)
 library(primer.data)
 library(tidymodels)
 library(broom)
+library(marginaleffects)
 ```
 # AI model for problem Latex
 $$
@@ -21,7 +22,7 @@ $$
 #linear regression
 
 ```{r} 
-#| cash :true
+#|cache : true
 x <- governors |>
   select(first_name, sex, lived_after)
 fit_years<-linear_reg(engine = "lm") |> 
@@ -36,7 +37,27 @@ $$
 
 
 
+
 ```
 
+```{r}
+library(tidymodels)
+library(knitr)
 
-Running for political office can be stressful and demanding.Using data from over 1,000 candidates for governor in the United States since 1945, we build a model to predict how long political candidates are likely to live.However, our model may be limited by the assumption that the sample of candidates is fully representative of all political candidates, which might not hold due to unobserved differences in health or lifestyle.
+# Fit model
+x <- governors |>
+  select(first_name, sex, lived_after)
+
+fit_years <- linear_reg(engine = "lm") |>
+  fit(lived_after ~ sex, data = x)
+
+# Tidy output and select only key columns
+fit_tidy <- tidy(fit_years, conf.int = TRUE) |>
+  select(term, estimate, conf.low, conf.high)
+
+# Display table
+kable(fit_tidy, digits = 2, caption = "Regression Estimates with Confidence Intervals")
+
+```
+
+Running for political office can be stressful and demanding.Using data from over 1,000 candidates for governor in the United States since 1945, we build a model to predict how long political candidates are likely to live.However, our model may be limited by the assumption that the sample of candidates is fully representative of all political candidates, which might not hold due to unobserved differences in health or lifestyle. We model post-election lifespan—measured in years lived after the election—as a linear function of candidate characteristics such as sex.This suggests that for each additional year of election age, the longevity gap between men and women widens, underscoring how age and gender jointly affect post-election life expectancy among gubernatorial candidates.
