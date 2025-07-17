@@ -1,6 +1,42 @@
 ---
 title: "Life Expectancy for Political Candidates"
-Aythor : Sharjeel
+Author : Sharjeel
 format: html
+execute: 
+  echo: false
 ---
 
+```{r}
+#| message : false
+library(tidyverse)
+library(primer.data)
+library(tidymodels)
+library(broom)
+```
+# AI model for problem Latex
+$$
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_k X_{ki} + \varepsilon_i
+$$
+
+#linear regression
+
+```{r} 
+#| cash :true
+x <- governors |>
+  select(first_name, sex, lived_after)
+fit_years<-linear_reg(engine = "lm") |> 
+            fit(lived_after ~ sex, data = x) |> tidy(conf.int = TRUE)
+
+
+        The fitted model can be expressed as:
+
+$$
+\hat{Y}_i = 18.4 - 2.7 \cdot \text{sex}_{\text{female},i}
+$$
+
+
+
+```
+
+
+Running for political office can be stressful and demanding.Using data from over 1,000 candidates for governor in the United States since 1945, we build a model to predict how long political candidates are likely to live.However, our model may be limited by the assumption that the sample of candidates is fully representative of all political candidates, which might not hold due to unobserved differences in health or lifestyle.
