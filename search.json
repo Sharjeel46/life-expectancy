@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "website",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "candidates.html",
+    "href": "candidates.html",
+    "title": "Life Expectancy for Political Candidates",
+    "section": "",
+    "text": "`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 10 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 10 rows containing missing values or values outside the scale range\n(`geom_point()`)."
+  },
+  {
+    "objectID": "candidates.html#analysis-post-election-longevity-by-age-and-gender",
+    "href": "candidates.html#analysis-post-election-longevity-by-age-and-gender",
+    "title": "Life Expectancy for Political Candidates",
+    "section": "Analysis: Post-Election Longevity by Age and Gender",
+    "text": "Analysis: Post-Election Longevity by Age and Gender\nThis plot models and visualizes the relationship between age at election, gender, and subsequent longevity for U.S. governor candidates.\nRunning for political office can be stressful and demanding.Using data from over 1,000 candidates for governor in the United States since 1945, we build a model to predict how long political candidates are likely to live.However, our model may be limited by the assumption that the sample of candidates is fully representative of all political candidates, which might not hold due to unobserved differences in health or lifestyle"
+  }
+]
